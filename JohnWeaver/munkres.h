@@ -50,10 +50,6 @@ public:
                 columns = m.columns(),
                 size = std::max(rows, columns);
 
-#ifdef DEBUG
-        std::cout << "Munkres input: " << m << std::endl;
-#endif
-
         // Copy input matrix
         this->matrix = m;
 
@@ -125,9 +121,6 @@ public:
             }
         }
 
-#ifdef DEBUG
-        std::cout << "Munkres output: " << matrix << std::endl;
-#endif
         // Remove the excess rows or columns that we added to fit the
         // input to a square matrix.
         matrix.resize(rows, columns);
@@ -272,17 +265,8 @@ private:
         }
 
     if ( covercount >= matrix.minsize() ) {
-  #ifdef DEBUG
-      std::cout << "Final cover count: " << covercount << std::endl;
-  #endif
       return 0;
     }
-
-  #ifdef DEBUG
-    std::cout << "Munkres matrix has " << covercount << " of " << matrix.minsize() << " Columns covered:" << std::endl;
-    std::cout << matrix << std::endl;
-  #endif
-
 
     return 3;
   }
