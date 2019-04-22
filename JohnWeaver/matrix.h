@@ -63,6 +63,24 @@ class Matrix {
 			}
 		}
 	}
+	Matrix(const std::vector<std::vector<T>> init) {
+		m_matrix = nullptr;
+		m_rows = init.size();
+		if (m_rows == 0) {
+			m_columns = 0;
+		} else {
+			m_columns = init.begin()->size();
+			if (m_columns > 0)
+				resize(m_rows, m_columns);
+		}
+
+		size_t i = 0, j;
+		for (auto row = init.begin(); row != init.end(); ++row, ++i) {
+			j = 0;
+			for (auto value = row->begin(); value != row->end(); ++value, ++j)
+				m_matrix[i][j] = *value;
+		}
+	}
 	Matrix(const Matrix<T> &other) {
 		if (other.m_matrix != nullptr) {
 			// copy arrays
