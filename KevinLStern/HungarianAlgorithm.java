@@ -1,4 +1,4 @@
-package blogspot.software_and_algorithms.stern_library.optimization;
+//package blogspot.software_and_algorithms.stern_library.optimization;
 
 import java.util.Arrays;
 
