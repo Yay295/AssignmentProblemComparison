@@ -1,20 +1,4 @@
-// -*- mode: c, coding: utf-8 -*-
-
-/**
- * 𝓞(n³) implementation of the Hungarian algorithm
- *
- * Copyright (C) 2011, 2014  Mattias Andrée
- *
- * This program is free software. It comes without any warranty, to
- * the extent permitted by applicable law. You can redistribute it
- * and/or modify it under the terms of the Do What The Fuck You Want
- * To Public License, Version 2, as published by Sam Hocevar. See
- * http://sam.zoy.org/wtfpl/COPYING for more details.
- *
- * Cleaned up version of https://raw.githubusercontent.com/maandree/hungarian-algorithm-n3/master/hungarian.c
- */
-
-
+#include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -22,15 +6,9 @@
 #include <limits.h>
 #include <assert.h>
 
-#ifndef RANDOM_DEVICE
-#define RANDOM_DEVICE "/dev/urandom"
-#endif
-
-#define MAIN
-
-#define cell	  long
-#define CELL_MAX  LONG_MAX
-#define CELL_STR  "%li"
+#define cell	  size_t
+#define CELL_MAX  ULONG_MAX
+#define CELL_STR  "%lu"
 
 typedef uintptr_t llong;
 typedef unsigned char boolean;
@@ -330,7 +308,7 @@ static inline void kuhn_altMark(struct kuhn_data *k, ssize_t currRow, ssize_t cu
  */
 void kuhn_altMarks(struct kuhn_data *k, ssize_t currRow, ssize_t currCol)
 {
-	size_t index = 0, i, j;
+	size_t i, j;
 
 	for (i = 0; i < k->n; i++)
 		k->rowPrimes[i] = -1;
@@ -534,100 +512,120 @@ size_t lb(llong value)
 	return rc;
 }
 
-#ifdef MAIN
+
 void print(cell** t, size_t n, size_t m, ssize_t** assignment);
-
-int main(int argc, char** argv)
-{
-	size_t i, j;
-	size_t n, m;
-	if (argc >= 3)
-	{
-		n = atol(argv[1]);
-		m = atol(argv[2]);
-		unsigned int seed;
-		if (argc == 3) {
-			FILE* urandom = fopen(RANDOM_DEVICE, "r");
-			fread(&seed, sizeof(unsigned int), 1, urandom);
-			fclose(urandom);
-		} else {
-			seed = atoi(argv[3]);
-		}
-		printf("seed: %u\n\n", seed);
-		srand(seed);
-	} else {
-		if (scanf(CELL_STR, &n) != 1) exit(1);
-		if (scanf(CELL_STR, &m) != 1) exit(1);
-	}
-	cell** t = malloc(n * sizeof(cell*));
-	cell** table = malloc(n * sizeof(cell*));
-	if (argc >= 3) {
-		for (i = 0; i < n; i++) {
-		t[i] = malloc(m * sizeof(cell));
-		table[i] = malloc(m * sizeof(cell));
-		for (j = 0; j < m; j++)
-			table[i][j] = t[i][j] = (cell)(random() & 63);
-	}
-	} else {
-		for (i = 0; i < n; i++) {
-		t[i] = malloc(m * sizeof(cell));
-		table[i] = malloc(m * sizeof(cell));
-		for (j = 0; j < m; j++) {
-				cell x;
-				if (scanf(CELL_STR, &x) != 1) exit(1);
-			table[i][j] = t[i][j] = x;
-		}
-	}
-	}
-
-	printf("\nInput:\n\n");
-	print(t, n, m, NULL);
-
-	ssize_t** assignment = kuhn_match(table, n, m);
-	printf("\nOutput:\n\n");
-	print(t, n, m, assignment);
-
-	cell sum = 0;
-	for (i = 0; i < n; i++) {
-		sum += t[assignment[i][0]][assignment[i][1]];
-	free(assignment[i]);
-	free(table[i]);
-	free(t[i]);
-	}
-	free(assignment);
-	free(table);
-	free(t);
-	printf("\n\nSum: %li\n\n", sum);
-
-	return 0;
-}
-
-void print(cell** t, size_t n, size_t m, ssize_t** assignment)
-{
+void print(cell** t, size_t n, size_t m, ssize_t** assignment) {
 	size_t i, j;
 
 	ssize_t** assigned = malloc(n * sizeof(ssize_t*));
-	for (i = 0; i < n; i++) {
+	for (i = 0; i < n; ++i) {
 		assigned[i] = malloc(m * sizeof(ssize_t));
-	for (j = 0; j < m; j++)
-		assigned[i][j] = 0;
+		for (j = 0; j < m; j++)
+			assigned[i][j] = 0;
 	}
-	if (assignment != NULL)
-		for (i = 0; i < n; i++)
-		assigned[assignment[i][0]][assignment[i][1]]++;
 
-	for (i = 0; i < n; i++) {
-	printf("	");
-	for (j = 0; j < m; j++) {
-		if (assigned[i][j])
-			printf("\033[%im", (int)(30 + assigned[i][j]));
-			printf("%5li%s\033[m   ", (cell)(t[i][j]), (assigned[i][j] ? "^" : " "));
+	if (assignment != NULL) {
+		for (i = 0; i < n; ++i)
+			++(*(*(assigned + **(assignment + i)) + *(*(assignment + i) + 1)));
+	}
+
+	for (i = 0; i < n; ++i) {
+		printf("    ");
+		for (j = 0; j < m; ++j) {
+			if (assigned[i][j])
+				printf("\033[%im", (int)(30 + assigned[i][j]));
+			printf(CELL_STR "%s\033[m ", t[i][j], assigned[i][j] ? "^" : " ");
 		}
-	printf("\n\n");
-	
-	free(assigned[i]);
+		printf("\n\n");
+
+		free(assigned[i]);
 	}
 
 	free(assigned);
 }
-#endif
+
+void specificTests(void);
+void specificTests(void) {
+	cell** tests[3] = {
+		(cell*[]) {
+			(cell[]){0, 0},
+			(cell[]){0, 0}
+		}, (cell*[]) {
+			(cell[]){0, 0, 0, 0},
+			(cell[]){0, 0, 0, 0},
+			(cell[]){0, 0, 0, 0},
+			(cell[]){0, 0, 0, 1}
+		}, (cell*[]) {
+			(cell[]){0, 0, 0, 0, 0},
+			(cell[]){0, 0, 0, 0, 0},
+			(cell[]){0, 0, 1, 1, 1},
+			(cell[]){0, 0, 1, 1, 1},
+			(cell[]){0, 0, 1, 1, 1}
+		}
+	};
+
+	for (size_t test = 0; test < 3; ++test) {
+		const size_t size = (size_t)(2.5f + (float)test * 1.5f);
+
+		printf("Test %li\n\n", test + 1);
+		print(tests[test], size, size, NULL);
+
+		ssize_t** assignment = kuhn_match(tests[test], size, size);
+
+		printf("Output:\n\n");
+		print(tests[test], size, size, assignment);
+	}
+}
+
+void speedTest(size_t count, size_t size);
+void speedTest(size_t count, size_t size) {
+	printf("==Speed Test (%lu %lux%lu)==\n", count, size, size);
+
+	// allocate matrix
+	cell** t = malloc(size * sizeof(cell*));
+	for (size_t i = 0; i < size; ++i)
+		t[i] = malloc(size * sizeof(cell));
+
+	const size_t THOUSAND = 1000;
+	const size_t MILLION = THOUSAND * THOUSAND;
+	const size_t BILLION = MILLION * THOUSAND;
+	const size_t max_size = size * size;
+	clock_t totalTime = 0;
+
+	for (size_t total = 1; total <= count; ++total) {
+		// fill with random values
+		for (size_t i = 0; i < size; ++i)
+			for (size_t j = 0; j < size; ++j)
+				t[i][j] = (cell)((size_t)random() % max_size);
+
+		// print iteration count
+		if (total < 12) printf("\n%lu", total);
+		else if (total < 100 && total % 12 == 0) printf("\n%lu Dozen", total / 12);
+		else if (total < THOUSAND && total % 100 == 0) printf("\n%lu Hundred", total / 100);
+		else if (total < MILLION && total % THOUSAND == 0) printf("\n%lu Thousand", total / THOUSAND);
+		else if (total < BILLION && total % MILLION == 0) printf("\n%lu Million", total / MILLION);
+		else if (total % BILLION == 0) printf("\n%lu Billion", total / BILLION);
+
+		clock_t start = clock();
+		kuhn_match(t, size, size);
+		clock_t end = clock();
+		totalTime += end - start;
+	}
+
+	printf("\n\n%fs Average Time\n\n", ((double)totalTime / (double)count) / CLOCKS_PER_SEC);
+
+	// free matrix
+	for (size_t i = 0; i < size; ++i) free(t[i]);
+	free(t);
+}
+
+int main(void) {
+	srand((unsigned)time(NULL));
+
+	specificTests();
+	speedTest(10000,50);
+	speedTest(100,250);
+	speedTest(10,1000);
+
+	return 0;
+}
