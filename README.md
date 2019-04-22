@@ -1,5 +1,7 @@
 # under construction
 
+The times at the bottom are old (though most of them shouldn't change much). Once I have all of the implementations updated I will rerun all of the tests.
+
 ## What is this?
 
 This repository is for comparing various implementations of solvers of the [Assignment Problem](https://en.wikipedia.org/wiki/Assignment_problem). I have tried to find every implementation I can, written in any programming language.
@@ -36,17 +38,17 @@ I have entered these times as relative to my own code (< 1.0 is slower, > 1.0 is
 
 | Author                    | Language   | Version Used  | Test 1 | Test 2 | Test 3 | Speed |
 |---------------------------|------------|---------------|--------|--------|--------|-------|
-| [Brian M. Clapper]        | Python     | June 27, 2017 | Pass   | Pass   | Pass   |  0.01 |
+| [Brian M. Clapper]        | Python     | Feb. 15, 2019 | Pass   | Pass   | Pass   |       |
 | [dlib]                    | C++        | July 13, 2018 | Pass   | Fail   | Fail   |       |
-| [HungarianAlgorithm.com]  | ?          | July 15, 2018 | Pass   | Pass   | Pass   | ?     |
-| [John Weaver]             | C++        | Mar. 27, 2016 | Pass   | Pass   | Pass   |  0.50 |
-| [Kevin L. Stern]          | Java       | Nov. 19, 2016 | Pass   | Pass   | Pass   | 18.13 |
+| [HungarianAlgorithm.com]  | ?          | July 15, 2018 | Pass   | Pass   | Pass   |       |
+| [John Weaver]             | C++        | Mar. 27, 2016 | Pass   | Pass   | Pass   |       |
+| [Kevin L. Stern]          | Java       | Nov. 19, 2016 | Pass   | Pass   | Pass   |       |
 | Lantao Liu                | C++        | June 18, 2013 | Pass   | Fail   | Fail   |       |
-| [Mattias Andrée]          | C          | Apr. 24, 2014 | Pass   | Pass   | Pass   |  0.69 |
-| [Paolo Bonzini]           | C          | June  9, 2017 | Pass   | Pass   | Pass   |  0.41 |
-| [University of Melbourne] | JavaScript | July 15, 2018 | Fail   | Fail   | Fail   |       |
+| [Mattias Andrée]          | C          | Apr. 24, 2014 | Pass   | Pass   | Pass   |       |
+| [Paolo Bonzini]           | C          | June  9, 2017 | Pass   | Pass   | Pass   |       |
+| [University of Melbourne] | JavaScript | Apr. 21, 2019 | Pass   | Pass   | Fail   |       |
 | [Vamsi Kundeti]           | C++        | Dec. 20, 2008 | ?      | Fail   | Fail   |       |
-| [Yay295]                  | C++        | July 19, 2018 | Pass   | Pass   | Pass   |  1.00 |
+| [Yay295]                  | C++        | Apr. 21, 2019 | Pass   | Pass   | Pass   |       |
 
 ### Notes
 
@@ -60,7 +62,7 @@ Lantao Liu's code didn't compile until making modifications to `Matrix.h`. Its o
 
 [Paolo Bonzini]'s code is an updated fork of [Mattias Andrée]'s code. Considering it's slower and emits more warnings, I'm not sure it was a worthwhile update.
 
-The [University of Melbourne] code doesn't actually solve it for you, but guides you along to a solution. Unfortunately, it's so broken that it won't let you reach a solution in many cases.
+The [University of Melbourne] code doesn't actually solve it for you, but guides you along to a solution. I included it anyways since it must have some code to be able to guide you "correctly".
 
 [Vamsi Kundeti]'s code passed my first test without crashing, but I wasn't able to determine what result it found. The code is a mess, and since it crashed on the second and third test I didn't bother checking the first more closely.
 
