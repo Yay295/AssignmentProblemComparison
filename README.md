@@ -43,7 +43,6 @@ I have entered these times as relative to my own code (< 1.0 is slower, > 1.0 is
 | [HungarianAlgorithm.com]  | ?          | Apr. 21, 2019 | Pass   | Pass   | Pass   |       |
 | [John Weaver]             | C++        | Mar. 27, 2016 | Pass   | Pass   | Pass   |       |
 | [Kevin L. Stern]          | Java       | May   7, 2017 | Pass   | Pass   | Pass   |       |
-| Lantao Liu                | C++        | June 18, 2013 | Pass   | Fail   | Fail   |       |
 | [Mattias Andrée]          | C          | Apr. 24, 2014 | Pass   | Pass   | Pass   |       |
 | [Paolo Bonzini]           | C          | June  9, 2017 | Pass   | Pass   | Pass   |       |
 | [University of Melbourne] | JavaScript | Apr. 21, 2019 | Pass   | Pass   | Fail   |       |
@@ -59,8 +58,6 @@ Although the [HungarianAlgorithm.com] implementation passed my tests, I did not 
 [John Weaver]'s code was originally written without templates, and then poorly ported to use templates. It had to be modified in order to correct those mistakes so that it could compile.
 
 [Kevin L. Stern]'s code is incredibly fast, and I don't know why. I've already spent longer on this than I planned though, so I'm just going to present them as they are and maybe come back to this in the future.
-
-Lantao Liu's code didn't compile until making modifications to `Matrix.h`. Its original source was http://robotics.usc.edu/~lantao/codes/hungarian.php, but I can no longer find it online. Lantao Liu has a website at http://iurobotics.net/lantaoliu.html.
 
 [Paolo Bonzini]'s code is an updated fork of [Mattias Andrée]'s code. Considering it's slower and emits more warnings, I'm not sure it was a worthwhile update.
 
