@@ -52,6 +52,8 @@ I have entered these times as relative to my own code (< 1.0 is slower, > 1.0 is
 
 ### Notes
 
+[dlib]'s code is not included in this repository because it's a pretty big library, and I did not modify it at all. The version I tested was 19.17, downloaded on April 21, 2019. I used the file modification date in the table above since I don't know exactly when the files I used were last changed.
+
 Although the [HungarianAlgorithm.com] implementation passed my tests, I did not time it because it is a webpage, and the network transfer times would have dwarfed any actual calculation times. Also, it only allows matrices up to 10x10.
 
 [John Weaver]'s code was originally written without templates, and then poorly ported to use templates. It had to be modified in order to correct those mistakes so that it could compile.
