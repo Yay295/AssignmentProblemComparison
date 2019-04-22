@@ -52,7 +52,7 @@ I have entered these times as relative to my own code (< 1.0 is slower, > 1.0 is
 
 ### Notes
 
-Although the [HungarianAlgorithm.com] implementation passed my tests, I did not time it beacuse it is a webpage, and the network tranfer times would have dwarfed any actual calculation times. Also, it only allows matrices up to 10x10.
+Although the [HungarianAlgorithm.com] implementation passed my tests, I did not time it because it is a webpage, and the network transfer times would have dwarfed any actual calculation times. Also, it only allows matrices up to 10x10.
 
 [John Weaver]'s code was originally written without templates, and then poorly ported to use templates. It had to be modified in order to correct those mistakes so that it could compile.
 
