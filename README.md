@@ -39,7 +39,7 @@ I have entered these times as relative to my own code (< 1.0 is slower, > 1.0 is
 | Author                    | Language   | Version Used  | Test 1 | Test 2 | Test 3 | Speed |
 |---------------------------|------------|---------------|--------|--------|--------|-------|
 | [Brian M. Clapper]        | Python     | Feb. 15, 2019 | Pass   | Pass   | Pass   |       |
-| [dlib]                    | C++        | July 13, 2018 | Pass   | Fail   | Fail   |       |
+| [dlib]                    | C++        | Mar. 10, 2019 | Pass   | Pass   | Fail   |       |
 | [HungarianAlgorithm.com]  | ?          | July 15, 2018 | Pass   | Pass   | Pass   |       |
 | [John Weaver]             | C++        | Mar. 27, 2016 | Pass   | Pass   | Pass   |       |
 | [Kevin L. Stern]          | Java       | Nov. 19, 2016 | Pass   | Pass   | Pass   |       |
