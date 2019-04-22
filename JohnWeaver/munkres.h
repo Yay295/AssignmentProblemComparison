@@ -233,9 +233,9 @@ template<typename Data> class Munkres {
 					mask_matrix(row,col) = STAR;
 					goto next_row;
 				}
-				next_column:
+				next_column:;
 			}
-			next_row:
+			next_row:;
 		}
 
 		return 2;
