@@ -40,7 +40,7 @@ I have entered these times as relative to my own code (< 1.0 is slower, > 1.0 is
 |---------------------------|------------|---------------|--------|--------|--------|-------|
 | [Brian M. Clapper]        | Python     | Feb. 15, 2019 | Pass   | Pass   | Pass   |       |
 | [dlib]                    | C++        | Mar. 10, 2019 | Pass   | Pass   | Fail   |       |
-| [HungarianAlgorithm.com]  | ?          | July 15, 2018 | Pass   | Pass   | Pass   |       |
+| [HungarianAlgorithm.com]  | ?          | Apr. 21, 2019 | Pass   | Pass   | Pass   |       |
 | [John Weaver]             | C++        | Mar. 27, 2016 | Pass   | Pass   | Pass   |       |
 | [Kevin L. Stern]          | Java       | Nov. 19, 2016 | Pass   | Pass   | Pass   |       |
 | Lantao Liu                | C++        | June 18, 2013 | Pass   | Fail   | Fail   |       |
