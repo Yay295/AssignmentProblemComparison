@@ -1,7 +1,3 @@
-# under construction
-
-The times at the bottom are old (though most of them shouldn't change much). Once I have all of the implementations updated I will rerun all of the tests.
-
 ## What is this?
 
 This repository is for comparing various implementations of solvers of the [Assignment Problem](https://en.wikipedia.org/wiki/Assignment_problem). I have tried to find every implementation I can, written in any programming language.
@@ -38,16 +34,16 @@ I have entered these times as relative to my own code (< 1.0 is slower, > 1.0 is
 
 | Author                    | Language   | Version Used  | Test 1 | Test 2 | Test 3 | Speed |
 |---------------------------|------------|---------------|--------|--------|--------|-------|
-| [Brian M. Clapper]        | Python     | Feb. 15, 2019 | Pass   | Pass   | Pass   |       |
+| [Brian M. Clapper]        | Python     | Feb. 15, 2019 | Pass   | Pass   | Pass   |  0.01 |
 | [dlib]                    | C++        | Mar. 10, 2019 | Pass   | Pass   | Fail   |       |
 | [HungarianAlgorithm.com]  | ?          | Apr. 21, 2019 | Pass   | Pass   | Pass   |       |
-| [John Weaver]             | C++        | Mar. 27, 2016 | Pass   | Pass   | Pass   |       |
-| [Kevin L. Stern]          | Java       | May   7, 2017 | Pass   | Pass   | Pass   |       |
-| [Mattias Andrée]          | C          | Apr. 24, 2014 | Pass   | Pass   | Pass   |       |
-| [Paolo Bonzini]           | C          | June  9, 2017 | Pass   | Pass   | Pass   |       |
+| [John Weaver]             | C++        | Mar. 27, 2016 | Pass   | Pass   | Pass   |  0.89 |
+| [Kevin L. Stern]          | Java       | May   7, 2017 | Pass   | Pass   | Pass   | 17.73 |
+| [Mattias Andrée]          | C          | Apr. 24, 2014 | Pass   | Pass   | Pass   |  1.15 |
+| [Paolo Bonzini]           | C          | June  9, 2017 | Pass   | Pass   | Pass   |  0.67 |
 | [University of Melbourne] | JavaScript | Apr. 21, 2019 | Pass   | Pass   | Fail   |       |
 | [Vamsi Kundeti]           | C++        | Dec. 20, 2008 | ?      | Fail   | Fail   |       |
-| [Yay295]                  | C++        | Apr. 21, 2019 | Pass   | Pass   | Pass   |       |
+| [Yay295]                  | C++        | Apr. 21, 2019 | Pass   | Pass   | Pass   |  1.00 |
 
 ### Notes
 
@@ -71,12 +67,12 @@ These times are all averages, displayed in seconds. The same code was used to te
 
 | Author                   | Language | 10,000 50x50 | 100 250x250 | 10 1000x1000 |
 |--------------------------|----------|--------------|-------------|--------------|
-| [Brian M. Clapper]       | Python   | 0.0873396668 | 15.3306751  | 1277.492758  |
-| [John Weaver]            | C++      | 0.0007233    |  0.23719    |   61.9894    |
-| [Kevin L. Stern]         | Java     | 0.000093     |  0.002968   |    0.072743  |
-| [Mattias Andrée]         | C        | 0.001264     |  0.21       |   17.2625    |
-| [Paolo Bonzini]          | C        | 0.002141     |  0.349062   |   31.679688  |
-| [Yay295]                 | C++      | 0.0006636    |  0.13706    |   19.5977    |
+| [Brian M. Clapper]       | Python   | 0.1163409071 | 19.30029786 |    N/A       |
+| [John Weaver]            | C++      | 0.000445313  |  0.1025     |   21.1297    |
+| [Kevin L. Stern]         | Java     | 0.0000747434 |  0.00242286 |    0.0621528 |
+| [Mattias Andrée]         | C        | 0.000597     |  0.089844   |    8.271875  |
+| [Paolo Bonzini]          | C        | 0.001067     |  0.1475     |   14.145312  |
+| [Yay295]                 | C++      | 0.000529687  |  0.102969   |   13.6438    |
 
 [Brian M. Clapper]: https://github.com/bmc/munkres
 [dlib]: http://dlib.net/
