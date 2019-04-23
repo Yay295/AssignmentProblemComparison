@@ -67,7 +67,7 @@ These times are all averages, displayed in seconds. The same code was used to te
 
 | Author                   | Language | 10,000 50x50 | 100 250x250 | 10 1000x1000 |
 |--------------------------|----------|--------------|-------------|--------------|
-| [Brian M. Clapper]       | Python   | 0.1163409071 | 19.30029786 |    N/A       |
+| [Brian M. Clapper]       | Python   | 0.1158764413 | 19.39100954 | 1622.4727908 |
 | [John Weaver]            | C++      | 0.000445313  |  0.1025     |   21.1297    |
 | [Kevin L. Stern]         | Java     | 0.0000747434 |  0.00242286 |    0.0621528 |
 | [Mattias Andrée]         | C        | 0.000597     |  0.089844   |    8.271875  |
