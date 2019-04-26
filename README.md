@@ -39,8 +39,8 @@ I have entered these times as relative to my own code (< 1.0 is slower, > 1.0 is
 | [HungarianAlgorithm.com]  | ?          | Apr. 21, 2019 | Pass   | Pass   | Pass   |       |
 | [John Weaver]             | C++        | Mar. 27, 2016 | Pass   | Pass   | Pass   |  0.89 |
 | [Kevin L. Stern]          | Java       | May   7, 2017 | Pass   | Pass   | Pass   | 17.73 |
-| [Mattias Andrée]          | C          | Apr. 24, 2014 | Pass   | Pass   | Pass   |  1.15 |
-| [Paolo Bonzini]           | C          | June  9, 2017 | Pass   | Pass   | Pass   |  0.67 |
+| [Mattias Andrée]          | C          | Apr. 24, 2014 | Pass   | Pass   | Pass   |  1.18 |
+| [Paolo Bonzini]           | C          | June  9, 2017 | Pass   | Pass   | Pass   |  0.68 |
 | [University of Melbourne] | JavaScript | Apr. 21, 2019 | Pass   | Pass   | Fail   |       |
 | [Vamsi Kundeti]           | C++        | Dec. 20, 2008 | ?      | Fail   | Fail   |       |
 | [Yay295]                  | C++        | Apr. 21, 2019 | Pass   | Pass   | Pass   |  1.00 |
@@ -70,8 +70,8 @@ These times are all averages, displayed in seconds. The same code was used to te
 | [Brian M. Clapper]       | Python   | 0.1158764413 | 19.39100954 | 1622.4727908 |
 | [John Weaver]            | C++      | 0.000445313  |  0.1025     |   21.1297    |
 | [Kevin L. Stern]         | Java     | 0.0000747434 |  0.00242286 |    0.0621528 |
-| [Mattias Andrée]         | C        | 0.000597     |  0.089844   |    8.271875  |
-| [Paolo Bonzini]          | C        | 0.001067     |  0.1475     |   14.145312  |
+| [Mattias Andrée]         | C        | 0.000592     |  0.082812   |    8.429688  |
+| [Paolo Bonzini]          | C        | 0.001055     |  0.144687   |   13.957812  |
 | [Yay295]                 | C++      | 0.000529687  |  0.102969   |   13.6438    |
 
 [Brian M. Clapper]: https://github.com/bmc/munkres

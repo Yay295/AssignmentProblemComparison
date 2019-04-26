@@ -124,14 +124,19 @@ void speedTest(size_t count, size_t size) {
 	const size_t THOUSAND = 1000;
 	const size_t MILLION = THOUSAND * THOUSAND;
 	const size_t BILLION = MILLION * THOUSAND;
-	const size_t max_size = size * size;
+	const cell max_size = size * size;
 	clock_t totalTime = 0;
 
 	for (size_t total = 1; total <= count; ++total) {
 		// fill with random values
-		for (size_t i = 0; i < size; ++i)
-			for (size_t j = 0; j < size; ++j)
-				t[i][j] = (cell)((size_t)random() % max_size);
+		for (size_t i = 0; i < size; ++i) {
+			for (size_t j = 0; j < size; ++j) {
+				int num;
+				do { num = rand();
+				} while (num > (RAND_MAX - ((RAND_MAX % max_size) + 1) % max_size));
+				t[i][j] = (cell)num % max_size;
+			}
+		}
 
 		// print iteration count
 		if (total < 12) printf("\n%lu", total);
