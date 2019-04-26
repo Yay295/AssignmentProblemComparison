@@ -53,7 +53,7 @@ Although the [HungarianAlgorithm.com] implementation passed my tests, I did not 
 
 [John Weaver]'s code was originally written without templates, and then poorly ported to use templates. It had to be modified in order to correct those mistakes so that it could compile.
 
-[Kevin L. Stern]'s code is incredibly fast, and I don't know why. I've already spent longer on this than I planned though, so I'm just going to present them as they are and maybe come back to this in the future.
+[Kevin L. Stern]'s code is incredibly fast, and I don't know why. I've noticed in the task manager that it is using multiple threads, but there's no multi-threading code in it, so this is probably just the garbage collector. It also seems to be caching more values, leading to a significantly higher memory footprint (though the memory usage could also just be the JVM).
 
 [Paolo Bonzini]'s code is an updated fork of [Mattias Andrée]'s code. Considering it's slower and emits more warnings, I'm not sure it was a worthwhile update.
 
