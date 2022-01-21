@@ -30,24 +30,27 @@ Some of the implementations had to be modified for testing. I have uploaded thei
 
 ## Results
 
-I have entered these times as relative to my own code (< 1.0 is slower, > 1.0 is faster). The actual times I recorded are listed at the end. The Version Used is the date that the code I tested was last updated. Some of these have been tested more recently, but their code has not changed since the date listed. If any of these are out of date, [create an issue for it](https://github.com/Yay295/AssignmentProblemComparison/issues/new) and I'll see about re-testing it.
+I have entered these times as relative to my own code (< 1.0 is slower, > 1.0 is faster). The actual times I recorded and the calculation I used for this value are listed at the end. The Version Used is the date that the code I tested was last updated. Some of these have been tested more recently, but their code has not changed since the date listed. If any of these are out of date, [create an issue for it](https://github.com/Yay295/AssignmentProblemComparison/issues/new) and I'll see about re-testing it.
 
-| Author                    | Language   | Version Used  | Test 1 | Test 2 | Test 3 | Speed |
-|---------------------------|------------|---------------|--------|--------|--------|-------|
-| [Brian M. Clapper]        | Python     | Feb. 15, 2019 | Pass   | Pass   | Pass   |  0.01 |
-| [dlib]                    | C++        | Mar. 10, 2019 | Pass   | Pass   | Fail   |       |
-| [HungarianAlgorithm.com]  | ?          | Apr. 21, 2019 | Pass   | Pass   | Pass   |       |
-| [John Weaver]             | C++        | Mar. 27, 2016 | Pass   | Pass   | Pass   |  0.89 |
-| [Kevin L. Stern]          | Java       | May   7, 2017 | Pass   | Pass   | Pass   | 17.73 |
-| [Mattias Andrée]          | C          | Apr. 24, 2014 | Pass   | Pass   | Pass   |  1.18 |
-| [Paolo Bonzini]           | C          | June  9, 2017 | Pass   | Pass   | Pass   |  0.68 |
-| [University of Melbourne] | JavaScript | Apr. 21, 2019 | Pass   | Pass   | Fail   |       |
-| [Vamsi Kundeti]           | C++        | Dec. 20, 2008 | ?      | Fail   | Fail   |       |
-| [Yay295]                  | C++        | Apr. 21, 2019 | Pass   | Pass   | Pass   |  1.00 |
+| Author                    | Language   | Version Used  | Test 1 | Test 2 | Test 3 | Speed  |
+|---------------------------|------------|---------------|--------|--------|--------|--------|
+| [Ben Chaplin]             | Python     | May  24, 2020 | Pass*  | Pass*  | Fail   |        |
+| [Brian M. Clapper]        | Python     | Feb. 15, 2019 | Pass   | Pass   | Pass   |   0.01 |
+| [dlib]                    | C++        | Mar. 28, 2021 | Pass   | Fail   | Fail   |        |
+| [HungarianAlgorithm.com]  | ?          | Jan. 20, 2022 | Pass   | Pass   | Pass   |        |
+| [John Weaver]             | C++        | Mar. 27, 2016 | Pass   | Pass   | Pass   |   0.68 |
+| [Kevin L. Stern]          | Java       | May   7, 2017 | Pass   | Pass   | Pass   | 108.18 |
+| [Mattias Andrée]          | C          | Feb. 20, 2021 | Pass   | Pass   | Pass   |   1.09 |
+| [Paolo Bonzini]           | C          | June  9, 2017 | Pass   | Pass   | Pass   |   0.62 |
+| [University of Melbourne] | JavaScript | Jan. 20, 2022 | Pass   | Pass   | Pass   |        |
+| [Vamsi Kundeti]           | C++        | Dec. 20, 2008 | ?      | Fail   | Fail   |        |
+| [Yay295]                  | C++        | Apr. 21, 2019 | Pass   | Pass   | Pass   |   1.00 |
 
 ### Notes
 
-[dlib]'s code is not included in this repository because it's a pretty big library, and I did not modify it at all. The version I tested was 19.17, downloaded on April 21, 2019. I used the file modification date in the table above since I don't know exactly when the files I used were last changed.
+[Ben Chaplin]'s code has a bug where it doesn't work if any input value is 0. In order to at least *try* testing it the test case values were all incremented by 1. It still gets stuck in an infinite loop somewhere during the third test.
+
+[dlib]'s code is not included in this repository because it's a pretty big library, and I did not modify it at all. The version I tested was 19.22, downloaded on January 20, 2022. I used the file modification date in the table above since I don't know exactly when the files I used were last changed.
 
 Although the [HungarianAlgorithm.com] implementation passed my tests, I did not time it because it is a webpage, and the network transfer times would have dwarfed any actual calculation times. Also, it only allows matrices up to 10x10.
 
@@ -65,15 +68,30 @@ The [University of Melbourne] code doesn't actually solve it for you, but guides
 
 These times are all averages, displayed in seconds. The same code was used to test the C and C++ implementations.
 
-| Author                   | Language | 10,000 50x50 | 100 250x250 | 10 1000x1000 |
-|--------------------------|----------|--------------|-------------|--------------|
-| [Brian M. Clapper]       | Python   | 0.1158764413 | 19.39100954 | 1622.4727908 |
-| [John Weaver]            | C++      | 0.000445313  |  0.1025     |   21.1297    |
-| [Kevin L. Stern]         | Java     | 0.0000747434 |  0.00242286 |    0.0621528 |
-| [Mattias Andrée]         | C        | 0.000592     |  0.082812   |    8.429688  |
-| [Paolo Bonzini]          | C        | 0.001055     |  0.144687   |   13.957812  |
-| [Yay295]                 | C++      | 0.000529687  |  0.102969   |   13.6438    |
+| Author             | Language | Compiler        | 10,000 50x50 | 100 250x250 | 10 1000x1000 |
+|--------------------|----------|-----------------|--------------|-------------|--------------|
+| [Brian M. Clapper] | Python   | 3.8.10          | 0.0875022136 | 15.24417355 |    N/A       |
+| [John Weaver]      | C++      | gcc 9.3.0       | 0.000535937  |  0.142813   |   28.6266    |
+| [Kevin L. Stern]   | Java     | OpenJDK 11.0.13 | 0.0000660661 |  0.00190706 |    0.0476911 |
+| [Mattias Andrée]   | C        | gcc 9.3.0       | 0.000600     |  0.097656   |    8.685937  |
+| [Paolo Bonzini]    | C        | gcc 9.3.0       | 0.001112     |  0.165313   |   15.579688  |
+| [Yay295]           | C++      | gcc 9.3.0       | 0.000479688  |  0.100469   |   12.6188    |
 
+### Speed Calculation
+
+The equation I used for the "Speed" value is:
+
+```python
+my_test_1 = 0.000479688
+my_test_2 = 0.100469
+my_test_3 = 12.6188
+other_test_1 = 0.000600
+other_test_2 = 0.097656
+other_test_3 = 8.685937
+speed = ((my_test_1/other_test_1) + (my_test_2/other_test_2) + (my_test_3/other_test_3)) / 3
+```
+
+[Ben Chaplin]: https://github.com/benchaplin/hungarian-algorithm
 [Brian M. Clapper]: https://github.com/bmc/munkres
 [dlib]: http://dlib.net/
 [HungarianAlgorithm.com]: http://hungarianalgorithm.com/solve.php
