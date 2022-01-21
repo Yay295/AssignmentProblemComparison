@@ -1,5 +1,5 @@
 make:
-	gcc -O3 -Wall -std=gnu99 test.c -o test
+	gcc -O3 -Wall -std=c99 test.c hungarian.c -o test
 
 run: make
 	./test
